@@ -1,0 +1,28 @@
+# Audio is not committed - see README.
+# Bring your own mp3 and drop it at assets/song.mp3
+assets/song.mp3
+*.mp3
+*.m4a
+*.wav
+*.ogg
+
+# macOS
+.DS_Store
+._*
+
+# editors
+.vscode/
+.idea/
+*.swp
+
+# environment variables
+.env
+.env.local
+.env.*.local
+
+# backup files
+*.bak
+*.tmp
+
+# netlify
+.netlify/

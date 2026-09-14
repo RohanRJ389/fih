@@ -1,0 +1,25 @@
+# Environment files - NEVER deploy secrets
+.env
+.env.local
+.env.*.local
+
+# Version control
+.git
+.gitignore
+
+# macOS
+.DS_Store
+._*
+
+# Backup and temp files
+*.bak
+*.tmp
+.vscode/
+.idea/
+
+# Build/cache directories
+node_modules/
+.netlify/
+
+# Sensitive directories
+Claude outputs/

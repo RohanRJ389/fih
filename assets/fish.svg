@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" width="400" height="200">
+  <defs>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5b6470"/>
+      <stop offset="55%" stop-color="#9aa4ae"/>
+      <stop offset="100%" stop-color="#e8ecef"/>
+    </linearGradient>
+    <linearGradient id="fin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#69737f"/>
+      <stop offset="100%" stop-color="#b3bcc4"/>
+    </linearGradient>
+    <linearGradient id="finDown" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#69737f"/>
+      <stop offset="100%" stop-color="#b3bcc4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- tail -->
+  <path d="M 100 100 L 26 50 L 46 100 L 26 150 Z" fill="url(#fin)"/>
+  <!-- dorsal fin -->
+  <path d="M 192 66 Q 224 6 248 12 Q 268 20 278 62 Z" fill="url(#fin)"/>
+  <!-- pelvic fin -->
+  <path d="M 206 136 Q 232 186 258 182 Q 274 176 276 146 Z" fill="url(#finDown)"/>
+  <!-- body -->
+  <path d="M 92 100 Q 152 38 258 54 Q 332 66 372 100 Q 332 134 258 146 Q 152 162 92 100 Z" fill="url(#body)"/>
+  <!-- gill -->
+  <path d="M 308 70 Q 296 100 308 130" fill="none" stroke="#78828d" stroke-width="3" stroke-linecap="round" opacity="0.65"/>
+  <!-- pectoral fin -->
+  <path d="M 288 104 Q 262 136 308 132 Z" fill="#828c96" opacity="0.9"/>
+  <!-- eye -->
+  <circle cx="341" cy="92" r="9" fill="#f6f8f9"/>
+  <circle cx="342" cy="92" r="5" fill="#1b1f24"/>
+</svg>
