@@ -73,7 +73,3 @@ Static site, so anywhere that serves files will do. On Netlify:
    the deploy, or upload it in the site's file browser
 
 Custom domain lives under Domain settings.
-
-## contribute
-
-Have at it. Fork it, put a different animal in it, put a different noise in it.
