@@ -1,16 +1,25 @@
 (function () {
+  console.log('why are you in here. go spin the fih.');
+
   const stage   = document.querySelector('.stage');
   const fish    = document.getElementById('fish');
   const hint    = document.getElementById('hint');
   const noaudio = document.getElementById('noaudio');
   const song    = document.getElementById('song');
-  
+
   // One full 360 degree turn of the fish, cut out of the original meme gif.
   const FRAMES = 22;
   // How long the fish can sit still (while still held) before the music stops.
   const IDLE_MS = 130;
   // Minimum angular movement, in degrees, that counts as "spinning".
   const MIN_DELTA = 0.35;
+
+  // Nobody needs to spin this much. Some people will anyway.
+  const MILESTONES = [
+    { at: 3600,  msg: 'ok you can stop now' },                            // 10 full turns
+    { at: 10800, msg: 'still going?' },                                   // 30 full turns
+    { at: 36000, msg: 'impressive. deeply unnecessary. but impressive.' } // 100 full turns
+  ];
 
   let rotation   = 0;      // accumulated yaw, in degrees
   let shown      = -1;     // frame index currently visible
@@ -20,6 +29,9 @@
   let playing    = false;
   let pointerId  = null;
   let hasAudio   = true;   // flips false if assets/song.mp3 is absent
+  let totalSpin  = 0;      // cumulative |degrees| dragged this visit, for the odometer easter egg
+  let nextMilestone = 0;   // index into MILESTONES
+  let hintResetTimer = null;
 
   // Build the frame stack. Every frame is layered on top of the last and
   // only one is ever opaque, so swapping is a compositor flip - no decode
@@ -87,6 +99,16 @@
     song.pause();
   }
 
+  function checkMilestone() {
+    const m = MILESTONES[nextMilestone];
+    if (!m || totalSpin < m.at) return;
+    nextMilestone++;
+    clearTimeout(hintResetTimer);
+    hint.textContent = m.msg;
+    hint.classList.remove('gone');
+    hintResetTimer = setTimeout(function () { hint.classList.add('gone'); }, 2600);
+  }
+
   function onDown(e) {
     if (pointerId !== null) return;
     pointerId = e.pointerId;
@@ -120,6 +142,9 @@
 
     lastMoveAt = performance.now();
     startAudio();
+
+    totalSpin += Math.abs(delta);
+    checkMilestone();
   }
 
   function onUp(e) {

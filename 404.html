@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>fih not found</title>
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      background: #ffffff;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 22px;
+    }
+
+    img {
+      width: min(60vw, 340px);
+      transform: scaleY(-1); /* belly up */
+      -webkit-user-drag: none;
+      pointer-events: none;
+    }
+
+    p {
+      color: #b8bec5;
+      font-size: clamp(13px, 3.2vw, 16px);
+      letter-spacing: 0.06em;
+      text-align: center;
+    }
+
+    a {
+      color: #6b7580;
+      text-decoration: none;
+    }
+
+    a:hover, a:focus-visible {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- 404: the deadest of fish -->
+  <main>
+    <img src="assets/frames/06.png" alt="a fih, belly up" draggable="false">
+    <p>404 &mdash; you've lost your way</p>
+    <p><a href="/">go back to spinning the fih</a></p>
+  </main>
+</body>
+</html>
