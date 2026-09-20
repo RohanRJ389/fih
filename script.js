@@ -16,9 +16,9 @@
 
   // Nobody needs to spin this much. Some people will anyway.
   const MILESTONES = [
-    { at: 3600,  msg: 'ok you can stop now' },                            // 10 full turns
-    { at: 10800, msg: 'still going?' },                                   // 30 full turns
-    { at: 36000, msg: 'impressive. deeply unnecessary. but impressive.' } // 100 full turns
+    { at: 7200,  msg: 'still going?' },                                   // 20 full turns
+    { at: 18000, msg: 'ok you can stop now' },                            // 50 full turns
+    { at: 27000, msg: 'impressive. deeply unnecessary. but impressive.' } // 75 full turns
   ];
 
   let rotation   = 0;      // accumulated yaw, in degrees
