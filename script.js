@@ -94,6 +94,10 @@
   }
 
   function stopAudio() {
+    // Every stop is the end of a spin session, audible or not - so the
+    // odometer only ever counts one continuous, uninterrupted spin.
+    totalSpin = 0;
+    nextMilestone = 0;
     if (!playing) return;
     playing = false;
     song.pause();
