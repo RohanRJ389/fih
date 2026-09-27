@@ -2,7 +2,7 @@
 
 a fih. drag it to spin.
 
-[live](https://justafih.netlify.app/)
+[live](https://justafih.site/)
 
 [how it works](./DETAILS.md)
 
