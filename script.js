@@ -32,6 +32,12 @@
   let totalSpin  = 0;      // cumulative |degrees| dragged this visit, for the odometer easter egg
   let nextMilestone = 0;   // index into MILESTONES
   let hintResetTimer = null;
+  let hasSpunThisVisit = false; // for the one-time "spin_started" event
+
+  // Fires a GA4 event if gtag is loaded; no-ops otherwise (e.g. ad blockers).
+  function track(name, params) {
+    if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
+  }
 
   // Build the frame stack. Every frame is layered on top of the last and
   // only one is ever opaque, so swapping is a compositor flip - no decode
@@ -76,6 +82,7 @@
   song.addEventListener('error', function () {
     hasAudio = false;
     noaudio.hidden = false;
+    track('audio_missing');
   });
 
   function centre() {
@@ -111,6 +118,7 @@
     hint.textContent = m.msg;
     hint.classList.remove('gone');
     hintResetTimer = setTimeout(function () { hint.classList.add('gone'); }, 2600);
+    track('milestone_reached', { milestone: m.msg, total_spin_degrees: Math.round(totalSpin) });
   }
 
   function onDown(e) {
@@ -146,6 +154,11 @@
 
     lastMoveAt = performance.now();
     startAudio();
+
+    if (!hasSpunThisVisit) {
+      hasSpunThisVisit = true;
+      track('spin_started');
+    }
 
     totalSpin += Math.abs(delta);
     checkMilestone();
